@@ -2,8 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Contracts\Foundation\Application;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
-use App\Models\fahrer;
+use App\Models\Fahrer;
+use Illuminate\Routing\Redirector;
+
 class FahrerController extends Controller
 {
     /**
@@ -13,9 +17,11 @@ class FahrerController extends Controller
      */
     public function index()
     {
-        $fahrer = fahrer::all();
-        dd($fahrer);
-        return view('fahrer.index');
+        $fahrende = Fahrer::all();
+//        dd($fahrende);
+        return view('fahrer.index',[
+            'fahrende'=>$fahrende
+        ]);
     }
 
     /**
@@ -25,18 +31,26 @@ class FahrerController extends Controller
      */
     public function create()
     {
-        //
+        return view('fahrer.create');
     }
 
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
+     * @param  Request  $request
+     * @return Application|RedirectResponse|Redirector
      */
-    public function store(Request $request)
+    public function store(Request $request): Redirector|RedirectResponse|Application
     {
-        //
+
+        $fahrer = Fahrer::create(
+            [
+                'vorname' => $request->input('vorname'),
+                'nachname' => $request->input('nachname')
+            ]
+        );
+
+        return redirect('/fahrer');
     }
 
     /**
@@ -47,7 +61,8 @@ class FahrerController extends Controller
      */
     public function show($id)
     {
-        //
+        $fahrer = Fahrer::find($id);
+        return view('fahrer.show')->with('fahrer',$fahrer);
     }
 
     /**

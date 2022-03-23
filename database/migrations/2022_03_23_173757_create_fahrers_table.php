@@ -17,6 +17,7 @@ return new class extends Migration
             $table->increments('id');
             $table->string('vorname');
             $table->string('nachname');
+            $table->timestamps();
         });
     }
 

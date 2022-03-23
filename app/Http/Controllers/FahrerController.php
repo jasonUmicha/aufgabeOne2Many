@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use App\Models\fahrer;
 class FahrerController extends Controller
 {
     /**
@@ -13,6 +13,8 @@ class FahrerController extends Controller
      */
     public function index()
     {
+        $fahrer = fahrer::all();
+        dd($fahrer);
         return view('fahrer.index');
     }
 

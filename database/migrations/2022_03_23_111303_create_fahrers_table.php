@@ -14,8 +14,9 @@ return new class extends Migration
     public function up()
     {
         Schema::create('fahrers', function (Blueprint $table) {
-            $table->id();
-            $table->timestamps();
+            $table->increments('id');
+            $table->string('vorname');
+            $table->string('nachname');
         });
     }
 

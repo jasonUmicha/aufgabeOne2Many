@@ -12,7 +12,7 @@ class Fahrer extends Model
     protected $table = 'fahrers';
     protected $primaryKey = 'id';
     protected $fillable = ['vorname','nachname'];
-
+    // plural
     public function fahrten()
     {
         return $this->hasMany(Fahrten::class);

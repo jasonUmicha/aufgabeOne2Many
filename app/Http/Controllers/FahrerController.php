@@ -102,7 +102,7 @@ class FahrerController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param Fahrer $fahrer
      * @return Application|Redirector|RedirectResponse
      */
     public function destroy(Fahrer $fahrer): Redirector|RedirectResponse|Application

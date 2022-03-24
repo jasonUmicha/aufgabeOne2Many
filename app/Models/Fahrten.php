@@ -10,6 +10,7 @@ class Fahrten extends Model
     use HasFactory;
     protected $table = 'fahrten';
     protected $primaryKey = 'id';
+    protected $fillable =['fahrer_id','von','nach','startTagZeit','km'];
     // singular
     public function fahrer()
     {

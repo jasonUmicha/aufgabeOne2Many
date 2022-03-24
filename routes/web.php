@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\FahrerController;
+use App\Http\Controllers\FahrtenController;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,6 +15,7 @@ use App\Http\Controllers\FahrerController;
 |
 */
 Route::resource('/fahrer', FahrerController::class);
+Route::resource('/fahrer/fahrten', FahrtenController::class);
 
 Route::get('/', function () {
     return view('welcome');

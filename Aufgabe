@@ -1,0 +1,21 @@
+Aufgabe:
+One2Many
+analog zum Video Laravelanwendung soll erstellt werden
+db-Tabellen:
+db-name fahrtenbuch
+
+tabelle fahrt
+id fahrer-id von nach start tag zeit km
+
+tabelle fahrer
+id vorname nachname
+
+von Rolf gewünschtes UI Tailwind
+
+Teilaufgaben:
+1. Datenbank erstellen mit Testdaten
+2. Projekt im leeren Ordner anlegen
+   tailwind installieren oder kopieren
+3. Controller erstellen
+   Model erstellen lassen
+   mit Testausgaben

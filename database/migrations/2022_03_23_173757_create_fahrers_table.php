@@ -19,6 +19,19 @@ return new class extends Migration
             $table->string('nachname');
             $table->timestamps();
         });
+        Schema::create('fahrten', function (Blueprint $table) {
+            $table->increments('id');
+            $table->unsignedInteger('fahrer_id');
+            $table->string('von');
+            $table->string('nach');
+            $table->dateTime('startTagZeit');
+            $table->integer('km');
+            $table->timestamps();
+            $table->foreign('fahrer_id')
+                ->references('id')
+                ->on('fahrers')
+                ->onDelete('cascade');
+        });
     }
 
     /**

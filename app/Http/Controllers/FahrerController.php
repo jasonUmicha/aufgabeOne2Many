@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Contracts\Foundation\Application;
+use Illuminate\Contracts\View\Factory;
+use Illuminate\Contracts\View\View;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use App\Models\Fahrer;
@@ -69,11 +71,13 @@ class FahrerController extends Controller
      * Show the form for editing the specified resource.
      *
      * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @return Application|Factory|View
      */
-    public function edit($id)
+    public function edit($id): View|Factory|Application
     {
-        //
+        $fahrer = Fahrer::find($id);
+//        dd($fahrer);
+        return view('fahrer.edit')->with('fahrer',$fahrer);
     }
 
     /**
@@ -81,21 +85,29 @@ class FahrerController extends Controller
      *
      * @param  \Illuminate\Http\Request  $request
      * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @return Application|Redirector|RedirectResponse
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, $id): Application|RedirectResponse|Redirector
     {
-        //
+        $fahrer = Fahrer::where('id',$id)
+            ->update(
+            [
+                'vorname' => $request->input('vorname'),
+                'nachname' => $request->input('nachname')
+            ]
+        );
+        return  redirect('/fahrer');
     }
 
     /**
      * Remove the specified resource from storage.
      *
      * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @return Application|Redirector|RedirectResponse
      */
-    public function destroy($id)
+    public function destroy(Fahrer $fahrer): Redirector|RedirectResponse|Application
     {
-        //
+        $fahrer->delete();
+        return redirect('/fahrer');
     }
 }

@@ -10,7 +10,7 @@
     </div>
 
     <div class="flex justify-center pt-20">
-        <form action="/fahrer/fahrten" method="POST" enctype="multipart/form-data">
+        <form action="/fahrten" method="POST" enctype="multipart/form-data">
             @csrf
             <div class="block">
                 <input

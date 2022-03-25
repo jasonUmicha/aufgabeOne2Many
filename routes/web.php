@@ -15,7 +15,7 @@ use App\Http\Controllers\FahrtenController;
 |
 */
 Route::resource('/fahrer', FahrerController::class);
-Route::resource('/fahrer/fahrten', FahrtenController::class);
+Route::resource('/fahrten', FahrtenController::class);
 
 Route::get('/', function () {
     return view('welcome');

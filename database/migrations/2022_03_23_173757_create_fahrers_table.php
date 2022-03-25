@@ -21,7 +21,7 @@ return new class extends Migration
         });
         Schema::create('fahrten', function (Blueprint $table) {
             $table->increments('id');
-            $table->unsignedInteger('fahrer_id');
+            $table->unsignedInteger('fahrer_id');//->nullable()
             $table->string('von');
             $table->string('nach');
             $table->dateTime('startTagZeit');
@@ -30,7 +30,7 @@ return new class extends Migration
             $table->foreign('fahrer_id')
                 ->references('id')
                 ->on('fahrers')
-                ->onDelete('cascade');
+                ->onDelete('cascade');//set null
         });
     }
 

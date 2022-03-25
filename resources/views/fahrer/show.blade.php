@@ -14,18 +14,10 @@
                         Vorname: {{ $fahrer->vorname }}
                     </span>
 
-                <p class="inline italic text-gray-700 font-bold text-5xl py-3">
+                <p class="inline italic text-gray-700 font-bold text-5xl py-10">
                     Fahrten
                 </p>
-                <div  class="pt-10 mb-10 sm:text-left">
-                    <a
-                        href="fahrten/create"{{--{{/$fahrer->id}}"--}}
-                        class="border-b-2 pb-2 border-dotted italic text-green-500">
-                        Neue Fahrt zuordnen &rarr;
-                    </a>
-                </div>
                 <table class="m-auto">
-
                         <thead >
                         <tr class="inline italic text-gray-600 px-1 py-6">
                             <th class="px-6">Nr.</th>
@@ -45,13 +37,13 @@
                             <td class="px-6">{{ $fahrt->startTagZeit }}</td>
                             <td class="px-6">
                                 <a
-                                    class="border-b-2 pb-2 border-dotted italic text-green-500"
-                                    href="fahrten/{{$fahrt->id}}/edit">
+                                    class="border-b-2 pb-2 border-dotted italic text-blue-500 "
+                                    href="/fahrten/{{$fahrt->id}}/edit">
                                     Edit &rarr;
                                 </a>
                             </td>
                             <td class="px-6">
-                                <form action="fahrten/{{$fahrt->id}} " class="pt-3" method="POST">
+                                <form action="/fahrten/{{$fahrt->id}} " class="pt-3" method="POST">
                                     @csrf
                                     @method('delete')
                                     <button

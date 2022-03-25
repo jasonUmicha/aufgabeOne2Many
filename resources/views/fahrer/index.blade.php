@@ -11,8 +11,15 @@
             <a
                 href="fahrer/create"
                 class="border-b-2 pb-2 border-dotted italic text-gray-500">
-                Add a new Driver &rarr;
+                Neuen Fahrer erstellen &rarr;
             </a>
+            <div  class="pt-10 mb-10 sm:text-left">
+                <a
+                    href="fahrten/"{{--{{/$fahrer->id}}"--}}
+                class="border-b-2 pb-2 border-dotted italic text-green-500">
+                    Neue Fahrt zuordnen / Fahrtenplanung &rarr;
+                </a>
+            </div>
         </div>
         <div class="w-5/6 py-10">
             @foreach ($fahrende as $fahrer)

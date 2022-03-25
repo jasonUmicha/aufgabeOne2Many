@@ -23,12 +23,11 @@ class FahrtenController extends Controller
      */
     public function index()
     {
-        $fahrer=Fahrer::all();
+//        $fahrer=Fahrer::all();
         $alleFahrten = Fahrten::all();
-//        dd($fahrende);
+//        dd($alleFahrten);
         return view('fahrten.index',[
-            'alleFahrten'=>$alleFahrten,
-            'fahrer'=>$fahrer
+            'alleFahrten'=>$alleFahrten
         ]);
     }
 
@@ -61,11 +60,11 @@ class FahrtenController extends Controller
             ]
         );
         $fahrer=Fahrer::find($fahrten->fahrer_id);
-//        $str="/fahrer/".str($fahrer->id)."/fahrten";
-
-        $str="/fahrer/".str($fahrer->id);
-//        dd($str);
-        return redirect($str)->with('fahrer',$fahrer);
+////        $str="/fahrer/".str($fahrer->id)."/fahrten";
+//
+//        $str="/fahrer/".str($fahrer->id);
+////        dd($str);
+        return redirect('/fahrten')->with('fahrer',$fahrer);
 
     }
 
@@ -127,9 +126,9 @@ class FahrtenController extends Controller
     public function destroy(Fahrten $fahrten): Redirector|RedirectResponse|Application
     {
         $fahrer=Fahrer::find(Fahrten::find($fahrten->id)->fahrer_id);
-        $str="/fahrer/".str($fahrer->id);
+//        $str="/fahrer/".str($fahrer->id);
 //dd($str);
         $fahrten->delete();
-        return redirect($str);
+        return redirect('/fahrten')->with('fahrer',$fahrer);
     }
 }

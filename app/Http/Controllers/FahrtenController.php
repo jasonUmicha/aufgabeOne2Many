@@ -110,11 +110,11 @@ class FahrtenController extends Controller
                 'km' => $request->input('km')
             ]
         );
-        $fahrer=Fahrer::find(Fahrten::find($id)->fahrer_id);
-//        $str="/fahrer/".str($fahrer->id)."/fahrten";
-//        dd($str);
-        $str="/fahrer/".str($fahrer->id);
-        return redirect($str)->with('fahrer',$fahrer);
+//        $fahrer=Fahrer::find(Fahrten::find($id)->fahrer_id);
+////        $str="/fahrer/".str($fahrer->id)."/fahrten";
+////        dd($str);
+//        $str="/fahrer/".str($fahrer->id);
+        return redirect("/fahrten");//->with('fahrer',$fahrer);
     }
 
     /**

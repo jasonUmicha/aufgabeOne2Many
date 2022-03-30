@@ -16,11 +16,11 @@ use App\Http\Controllers\FahrtenController;
 */
 Route::resource('/fahrer', FahrerController::class);
 Route::resource('/fahrten', FahrtenController::class);
-
-Route::get('/', function () {
-    return view('welcome');
-});
-Route::get('/app', function () {
-    return view('app');
-});
+Route::redirect('/','/fahrer');
+//Route::get('/', function () {
+//    return view('welcome');
+//});
+//Route::get('/app', function () {
+//    return view('app');
+//});
 

@@ -14,11 +14,16 @@
             @csrf
             @method('PUT')
             <div class="block">
-                <input
-                    type="number"
-                    class="block shadow-5xl mb-10 p-2 w-80 italic placeholder-gray-400"
-                    name="fahrer_id"
-                    value="{{$fahrten->fahrer_id}}">
+{{--                <input--}}
+{{--                    type="number"--}}
+{{--                    class="block shadow-5xl mb-10 p-2 w-80 italic placeholder-gray-400"--}}
+{{--                    name="fahrer_id"--}}
+{{--                    value="{{$fahrten->fahrer_id}}">--}}
+                <select name="fahrer_id" id="" class="block shadow-5xl mb-10 p-2 w-80 italic placeholder-gray-400">
+                    @foreach($fahrer as $row)
+                        <option name="fahrer_id" value="{{$row->id}}" > {{$row->vorname}} {{$row->nachname}}</option>
+                    @endforeach
+                </select>
                 <input
                     type="text"
                     class="block shadow-5xl mb-10 p-2 w-80 italic placeholder-gray-400"

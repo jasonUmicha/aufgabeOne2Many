@@ -13,11 +13,16 @@
         <form action="/fahrten" method="POST" enctype="multipart/form-data">
             @csrf
             <div class="block">
-                <input
-                    type="number"
-                    class="block shadow-5xl mb-10 p-2 w-80 italic placeholder-gray-400"
-                    name="fahrer_id"
-                    placeholder="Fahrer_id...">
+{{--                <input--}}
+{{--                    type="number"--}}
+{{--                    class="block shadow-5xl mb-10 p-2 w-80 italic placeholder-gray-400"--}}
+{{--                    name="fahrer_id"--}}
+{{--                    placeholder="Fahrer_id...">--}}
+                <select name="fahrer_id" id="" class="block shadow-5xl mb-10 p-2 w-80 italic placeholder-gray-400">
+                    @foreach($fahrer as $row)
+                        <option name="fahrer_id" value="{{$row->id}}" > {{$row->vorname}} {{$row->nachname}}</option>
+                    @endforeach
+                </select>
                 <input
                     type="text"
                     class="block shadow-5xl mb-10 p-2 w-80 italic placeholder-gray-400"

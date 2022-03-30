@@ -38,8 +38,10 @@ class FahrtenController extends Controller
      */
     public function create(): Application|Factory|View
     {
+        $fahrer = Fahrer::all();
+
 //        dd($id);
-        return view('fahrten.create');
+        return view('fahrten.create')->with('fahrer' ,$fahrer);
     }
 
     /**
@@ -52,7 +54,7 @@ class FahrtenController extends Controller
     {
         $fahrten = Fahrten::create(
             [
-                'fahrer_id' => $request->input('fahrer_id'),
+                'fahrer_id' => $request->get('fahrer_id'),
                 'von' => $request->input('von'),
                 'nach' => $request->input('nach'),
                 'startTagZeit' => $request->input('startTagZeit'),
@@ -88,8 +90,9 @@ class FahrtenController extends Controller
     public function edit(int $id): View|Factory|Application
     {
         $fahrten = Fahrten::find($id);
+        $fahrer = Fahrer::all();
 //        dd($fahrten);
-        return view('fahrten.edit')->with('fahrten',$fahrten);
+        return view('fahrten.edit')->with('fahrer', $fahrer)->with('fahrten',$fahrten);
     }
 
     /**
@@ -103,7 +106,7 @@ class FahrtenController extends Controller
     {
         $fahrten = Fahrten::where('id',$id)
             ->update([
-                'fahrer_id' => $request->input('fahrer_id'),
+                'fahrer_id' => $request->get('fahrer_id'),
                 'von' => $request->input('von'),
                 'nach' => $request->input('nach'),
                 'startTagZeit' => $request->input('startTagZeit'),

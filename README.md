@@ -1,3 +1,31 @@
+#über Konsole Dateien von github Runterladen:
+
+>>1. Verzeichnis erstellen, in dem der clone erstellt werden soll
+>>2. ins Verzeichnis wechseln<br>
+>>3. git clone ... eingeben hier: https://github.com/jasonUmicha/aufgabeOne2Many.git <br><br>
+   oder <br><br>
+   1.+2. is 3. git clone ... eingeben hier: <br>
+   https://github.com/jasonUmicha/aufgabeOne2Many.git >neuer Verzeichnisname<
+
+>>4. composer install eingeben (vendor-Verzeichnis wird erstellt)
+>>5. .env erstellen als Kopie von .env.example
+>>6. schema in db erstellen
+>>7. php artisan key:generator
+>>8. db-Zugangsdaten in .env eingeben
+>>9. in Konsole: npm install
+>>10. npm run dev
+>>11. php artisan migrate (zur Erstellen der Tabellen)
+>>12. php artisan serve <br>
+>><p>Fertig nun im Browser den localhost öffnen und daten eintragen </p>
+
+
+
+
+
+
+
+
+
 <p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400"></a></p>
 
 <p align="center">

@@ -56,7 +56,9 @@ hr {
   color: inherit; /* 2 */
   border-top-width: 1px; /* 3 */
 }
-
+hr.darkred {
+  border-color: darkred;
+}
 /*
 Add the correct text decoration in Chrome, Edge, and Safari.
 */

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Wohnort;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;
@@ -9,6 +10,8 @@ use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use App\Models\Fahrer;
 use Illuminate\Routing\Redirector;
+
+
 
 class FahrerController extends Controller
 {
@@ -51,6 +54,14 @@ class FahrerController extends Controller
                 'nachname' => $request->input('nachname')
             ]
         );
+        $fahrer->refresh();
+        $wohnort = Wohnort::create(
+                [
+                    'fahrer_id' => $fahrer->id,
+                    'ort' => $request->input('ort'),
+                    'plz' => $request->input('plz')
+                ]
+            );
 
         return redirect('/fahrer');
     }
@@ -64,6 +75,8 @@ class FahrerController extends Controller
     public function show($id)
     {
         $fahrer = Fahrer::find($id);
+//        $wohnort = $fahrer->wohnort;
+//        dd($wohnort);
         return view('fahrer.show')->with('fahrer',$fahrer);
     }
 
@@ -96,6 +109,13 @@ class FahrerController extends Controller
                 'nachname' => $request->input('nachname')
             ]
         );
+        $wohnort = Wohnort::where('fahrer_id',$id)
+            ->update(
+                [
+                    'ort' => $request->input('ort'),
+                    'plz' => $request->input('plz')
+                ]
+            );
         return  redirect('/fahrer');
     }
 

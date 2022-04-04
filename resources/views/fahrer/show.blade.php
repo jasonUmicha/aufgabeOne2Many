@@ -11,7 +11,9 @@
         <div class="py-10 text-center">
             <div class="m-auto">
                     <span class="uppercase text-blue-500 font-bold text-xs italic">
-                        Vorname: {{ $fahrer->vorname }}
+                        Vorname: {{ $fahrer->vorname }}<br>
+                        wohnort: {{$fahrer->wohnort->ort}}<br>
+                        plz: {{$fahrer->wohnort->plz}}<br>
                     </span>
 
                 <p class="inline italic text-gray-700 font-bold text-5xl py-10">

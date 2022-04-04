@@ -17,4 +17,9 @@ class Fahrer extends Model
     {
         return $this->hasMany(Fahrten::class);
     }
+
+    public function wohnort()
+    {
+        return $this->hasOne(Wohnort::class);
+    }
 }

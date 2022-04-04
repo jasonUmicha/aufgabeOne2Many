@@ -53,7 +53,13 @@
                     </a>
                 </h2>
 
-                <hr class="mt-4 mb-8">
+                <span
+                    class="uppercase text-blue-500 font-bold text-xs italic">
+                        wohnort: {{$fahrer->wohnort->ort}}<br>
+                        plz: {{$fahrer->wohnort->plz}}
+                    </span>
+
+                <hr class="mt-4 mb-8 darkred" >
             </div>
 
             @endforeach

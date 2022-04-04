@@ -26,6 +26,20 @@
                     name="nachname"
                     value="{{ $fahrer->nachname }}">
 
+                <input
+                    type="text"
+                    class="block shadow-5xl mb-10 p-2 w-80 italic placeholder-gray-400"
+                    name="ort"
+                    value="{{ $fahrer->wohnort->ort }}">
+
+                <input
+                    type="text"
+                    class="block shadow-5xl mb-10 p-2 w-80 italic placeholder-gray-400"
+                    pattern="[0-9]{5}"
+                    name="plz"
+                    value="{{ $fahrer->wohnort->plz }}">
+
+
                 <button type="submit" class="bg-green-500 block shadow-5xl mb-10 p-2 w-80 uppercase font-bold">
                     Submit
                 </button>
